@@ -524,6 +524,7 @@ func TestOutliers(t *testing.T) {
 			"testlog/corrupt-tail/00000000000000000001",
 			[]byte("\n"), 0666)
 		if l, err := Open("testlog/corrupt-tail", opts); err != ErrCorrupt {
+			fmt.Printf("error: %s\n", err)
 			l.Close()
 			t.Fatalf("expected %v, got %v", ErrCorrupt, err)
 		}
